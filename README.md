@@ -1,9 +1,9 @@
-psprot - port scan protection tool
-(very old project, written around 2012)
+## psprot - port scan protection tool
+*(very old project, written around 2012)*
 
 Linux daemon, detecting all of port scan methods (including SYN scan and UDP scan).
 
-Features:
+### Features:
 - executes "ban command" specified in .conf file,
 - allows to set up "trap" ports,
 - allows to specify number of scans to tolerate from one IP,
@@ -11,7 +11,8 @@ Features:
 - whitelist (with CIDR),
 - rights drop to specified uid/gid.
 
-Compilation:
+### Build
+*(uses conan to fetch required libs)*
 ```
 cmake ../psprot/ -G Ninja
 ninja
@@ -27,7 +28,7 @@ Daemon options:
 -d --daemonize Run in background.
 ```
 
-Config file:
+Config file (pss.conf):
 ```
 max_knock_count = 5 # maximum number of trap port knocks from one IP
 tcp_trap_ports = { 5, 15, 20, 50-60 } # tcp trap ports (can be number, or range_start-rage_stop)
